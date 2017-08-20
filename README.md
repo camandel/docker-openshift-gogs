@@ -1,4 +1,4 @@
-# Gogs for OpenShift Online Starter (free plan)
+# Gogs for OpenShift Online 3 Starter (free plan)
 Gogs is the Go Git service. Learn more about it at https://gogs.io/
 
 Running containers on OpenShift comes with certain security and other requirements. This repository contains:
@@ -9,7 +9,7 @@ Running containers on OpenShift comes with certain security and other requiremen
 * Usage instructions
 
 ## Prerequisites
-* An account in an OpenShift Online environment and a project (it uses sqlite as Starter plan has only one Physical Volume)
+* An account in an OpenShift Online 3 Starter environment and a project (it uses sqlite as Starter plan has only one Physical Volume)
 
 ## Deployment
 Gogs can be easily deployed using the included template in `openshift` folder:
