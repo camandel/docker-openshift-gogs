@@ -14,9 +14,9 @@ This repository has been created to run gogs on Red Hat OpenShift Online 3 Start
 * Custom configuration (app.ini) mounted as /opt/gogs/custom/conf via ConfigMaps
 * Can be accessed only in HTTPS, no SSH available
 
-For more examples with database please look at:
-https://github.com/wkulhanek/docker-openshift-gogs
-https://github.com/OpenShiftDemos/gogs-openshift-docker
+For more examples with databases please look at:
+* https://github.com/wkulhanek/docker-openshift-gogs
+* https://github.com/OpenShiftDemos/gogs-openshift-docker
 
 ## Prerequisites
 * An account in an OpenShift Online 3 Starter environment

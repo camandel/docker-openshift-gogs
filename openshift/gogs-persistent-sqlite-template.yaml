@@ -235,7 +235,7 @@ parameters:
 - description: 'Custom hostname for https service route, e.g.: <application-name>-<project>.<zone>.openshiftapps.com (you can change it later in ConfigMap)'
   name: HOSTNAME
   required: true
-  value: "myapp-myproject.XXXX.starter-us-east-1.openshiftapps.com"
+  value: "gogs-myproject.XXXX.starter-us-east-1.openshiftapps.com"
 - description: Volume space available for data, e.g. 512Mi, 2Gi
   name: GOGS_VOLUME_CAPACITY
   required: true
