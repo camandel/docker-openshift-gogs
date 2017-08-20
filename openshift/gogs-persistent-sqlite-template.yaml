@@ -197,12 +197,15 @@ objects:
       [server]
       ROOT_URL = https://${HOSTNAME}
       DISABLE_SSH = true
+      OFFLINE_MODE = true
+      DISABLE_ROUTER_LOG = true
 
       [security]
       INSTALL_LOCK = ${INSTALL_LOCK}
+      SECRET_KEY = ${SECRET_KEY}
 
       [log]
-      LEVEL = "info"
+      LEVEL = Info
 
       [mailer]
       ENABLED = false
@@ -241,6 +244,11 @@ parameters:
   displayName: Installation lock
   description: 'If set to true, installation (/install) page will be disabled. Set to false if you want to run the installation wizard via web'
   value: "true"
+- name: SECRET_KEY
+  displayName: Secret Key
+  description: 'If not set it will be generated'
+  generate: expression
+  from: "[a-zA-Z0-9]{40}"
 - name: SKIP_TLS_VERIFY
   displayName: Skip TLS verification on webhooks
   description: Skip TLS verification on webhooks. Enable with caution!
