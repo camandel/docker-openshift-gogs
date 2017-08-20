@@ -45,7 +45,6 @@ objects:
       app: ${APPLICATION_NAME}
     name: ${APPLICATION_NAME}
   spec:
-    host: ${HOSTNAME}
     to:
       name: ${APPLICATION_NAME}
     port:
@@ -83,7 +82,7 @@ objects:
         serviceAccountName: ${APPLICATION_NAME}
         containers:
         - image: ${GOGS_IMAGE}
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           name: ${APPLICATION_NAME}
           ports:
           - containerPort: 3000
@@ -99,7 +98,7 @@ objects:
               httpGet:
                 path: /
                 port: 3000
-                scheme: HTTPS
+                scheme: HTTP
               initialDelaySeconds: 3
               timeoutSeconds: 1
               periodSeconds: 20
@@ -109,7 +108,7 @@ objects:
               httpGet:
                 path: /
                 port: 3000
-                scheme: HTTPS
+                scheme: HTTP
               initialDelaySeconds: 3
               timeoutSeconds: 1
               periodSeconds: 10
@@ -147,6 +146,7 @@ objects:
       app: ${APPLICATION_NAME}
     name: ${APPLICATION_NAME}
   spec:
+    dockerImageRepository: docker.io/${GOGS_IMAGE}
     tags:
     - name: "${GOGS_VERSION}"
       from:
@@ -201,6 +201,9 @@ objects:
       [security]
       INSTALL_LOCK = ${INSTALL_LOCK}
 
+      [log]
+      LEVEL = "info"
+
       [mailer]
       ENABLED = false
 
@@ -220,13 +223,16 @@ objects:
 
       [other]
       SHOW_FOOTER_BRANDING = false
-      SHOW_FOOTER_VERSION = false
       SHOW_FOOTER_TEMPLATE_LOAD_TIME = false
 parameters:
 - description: The name for the application.
   name: APPLICATION_NAME
   required: true
   value: gogs
+- description: 'Custom hostname for https service route, e.g.: <application-name>-<project>.<zone>.openshiftapps.com (you can change it later in ConfigMap)'
+  name: HOSTNAME
+  required: true
+  value: "myapp-myproject.XXXX.starter-us-east-1.openshiftapps.com"
 - description: Volume space available for data, e.g. 512Mi, 2Gi
   name: GOGS_VOLUME_CAPACITY
   required: true
