@@ -151,7 +151,7 @@ objects:
     - name: "${GOGS_VERSION}"
       from:
         kind: DockerImage
-        name: workstation.example.com:5000/${GOGS_IMAGE}:${GOGS_VERSION}
+        name: docker.io/${GOGS_IMAGE}:${GOGS_VERSION}
       importPolicy: {}
       annotations:
         description: The Gogs git server docker image
@@ -245,7 +245,7 @@ parameters:
 - name: GOGS_IMAGE
   displayName: Gogs Image
   description: The name and tag for the Gogs Image to use
-  value: "gogs"
+  value: "camandel/docker-openshift-gogs"
   required: true
 - name: GOGS_VERSION
   displayName: Gogs Image Version Tag
